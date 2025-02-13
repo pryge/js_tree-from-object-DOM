@@ -29,7 +29,10 @@ function createTree(element, data) {
     li.textContent = key;
 
     if (typeof data[key] === 'object' && data[key] !== null) {
-      createTree(list, data[key]);
+      const subList = document.createElement('ul');
+
+      createTree(subList, data[key]);
+      li.appendChild(subList);
     }
 
     list.appendChild(li);
